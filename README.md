@@ -1,0 +1,7 @@
+Agent is a class which has a HexaGrid instance and a position (associated cartesian coordinates) as instance variables. Typical methods include moving and performing various scans, collecting the parameters of surrounding cells. Methods for decision making are typically implemented in child classes. Instances of Agent therefore provide models for autonomously acting subjects, like robots or simplified animals. 
+
+Examples for specific simulations are implemented in the modules in the simulations package. They can be run by executing the ...\_app.py files in the console (these use the class App contained in the hexagrid package, which repeats and displays the simulation steps on a tkinter window).
+
+One example is a duck family consisting of a mother and a number of following children. In each step, the mother moves randomly in one of the three forward directions NE, E or SE. The subsequent child performs a radial scan of radius two and moves, if neccessary, in order to close up to the mother (random choice between ambiguous moving directions). The same is perfomed by each subsequent child with respect to the duck in front.
+
+Another example is a model for the pathfinding mechanism of ants, which leave a  track of scent of a certain strength evaporating at a certain rate. An ant moves to an adjacent cell of maximum strength (randomly in ambiguous cases) in forward direction with a certain high probability, and else to a randomly chosen cell in forward direction.
