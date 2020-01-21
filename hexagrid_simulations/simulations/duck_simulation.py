@@ -57,9 +57,13 @@ class DuckSimulation:
     
     def __init__(self):
         
+        self._max_steps=150
+        self._step=0
+        self._time_step=80
+        
         self._World=hexagrid.hexagrid.HexaGrid(15,80)
         
-        self._N=10
+        self._N=15
         
         self._Duck=[]
         for i in range(self._N):
@@ -82,6 +86,8 @@ class DuckSimulation:
             self._Duck[i]._move(decision)
             self._Duck[i]._leave_mark(i+1)
             
+        self._step+=1
+            
             
     def _display(self):
         """Returns a string visualising _World with Ducks on it."""
@@ -103,4 +109,4 @@ class DuckSimulation:
                     
             lines+='\n'
             
-        return lines
+        return lines+str(self._step)

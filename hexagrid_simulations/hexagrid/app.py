@@ -41,15 +41,12 @@ class App:
         
         def _update_label():
             
-            _max_steps=2000
-            _time_step=40
-            
             self._simulation._simulation_step()                
             self._screen.config(text=self._simulation._display(),font='TkFixedFont')
             self._counter+=1                        
             
-            if self._counter<=_max_steps:
-                self._screen.after(_time_step,_update_label)
+            if self._counter<=self._simulation._max_steps:
+                self._screen.after(self._simulation._time_step,_update_label)
                 
         _update_label()
         

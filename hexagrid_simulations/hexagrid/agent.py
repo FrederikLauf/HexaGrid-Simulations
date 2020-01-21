@@ -50,7 +50,7 @@ class Agent:
 
         scan=[]
         for i in range(start,stop+1):
-            cell_of_interest=self._grid.make_direction(cell,dictio[i])
+            cell_of_interest=self._grid.make_direction(cell,dictio[i%6])
             if cell_of_interest!=False:
                 scan.append(cell_of_interest.get_param())
             else:
