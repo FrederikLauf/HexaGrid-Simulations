@@ -19,8 +19,8 @@ class Agent:
         """Create Agent instance.
         
         grid         a grid (assumed a HexaGrid instance), on which the Agent lives
-        _position    cartesian coordinates associated with position on the grid
-        _decision    a direction, in which the Agent intends to move
+        position    cartesian coordinates associated with position on the grid
+        decision    a direction, in which the Agent intends to move
         """
         
         self._position=position
@@ -173,7 +173,10 @@ class Agent:
         
     
         
-
+    
+    def _leave_mark(self,value):
+        
+        self._grid._tab[self._position[0]][self._position[1]].set_param(value)
                     
 
 

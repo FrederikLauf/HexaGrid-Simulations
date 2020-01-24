@@ -50,7 +50,7 @@ class AntAgent(hexagrid.agent.Agent):
 class AntSimulation:
     
     def __init__(self):
-        """Create AntApp instance."""
+        """Create AntSimulation instance."""
         
         self._max_steps=5000
         self._step=0
