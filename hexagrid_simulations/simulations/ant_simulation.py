@@ -54,7 +54,7 @@ class AntSimulation:
         
         self._max_steps=5000
         self._step=0
-        self._time_step=30
+        self._time_step=15
         
         self._World=hexagrid.hexagrid.HexaGrid(40,50)
         
@@ -68,7 +68,7 @@ class AntSimulation:
             self._World._tab[pos[0]][pos[1]].set_param(-1)
             
         
-        self._N=40
+        self._N=80
         
         self._Ant=[]
         for i in range(self._N):
@@ -97,7 +97,7 @@ class AntSimulation:
             if ant._position[1]==2 and ant._position[0] in range(17,24):
                 ant._steps=0
                 self._success_ant.remove(ant)
-                self._Ant.append(ant)
+                #self._Ant.append(ant)
                 
             if ant._position[1]==0:
                 self._success_ant.remove(ant)
@@ -106,7 +106,7 @@ class AntSimulation:
         
             decision=ant._make_ant_decision(2,4)
             
-            if random.randint(1,10) in range(1,4) and decision!=None:
+            if random.randint(1,100) in range(1,26) and decision!=None:
                 decision=self._World._dictio[random.randint(2,4)]
             
             
@@ -119,7 +119,7 @@ class AntSimulation:
                 
             if (ant._position[1]==44 and 
                 (ant._position[0] in range(5,12) 
-                 or ant._position[0] in range(24,33))):                
+                 or ant._position[0] in range(24,32))):                
                 self._success_ant.append(ant)
                 self._active_ant.remove(ant)
                 
