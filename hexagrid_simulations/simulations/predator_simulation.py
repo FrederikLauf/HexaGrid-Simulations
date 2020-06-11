@@ -8,6 +8,7 @@ Created on Thu Jan 23 12:49:01 2020
 import hexagrid.hexagrid
 import hexagrid.agent
 import random
+import winsound
 
 
 
@@ -27,8 +28,8 @@ class PredatorAgent(hexagrid.agent.Agent):
             
             for i in range(start,start+6):
                 
-                if 1 in scan[i%6]:
-
+                if 1 in scan[i%6]:                    
+                    
                     sector=i%6
                     start=random.randint(0,r-1)
                     
@@ -110,7 +111,7 @@ class PredatorSimulation:
         
         self._max_steps=450
         self._step=0
-        self._time_step=70
+        self._time_step=75
         
         self._World=hexagrid.hexagrid.HexaGrid(40,60)
         
@@ -150,7 +151,7 @@ class PredatorSimulation:
         for p in _Prey_copy:
             
             if p._position==self._Predator._position:
-                self._Prey.remove(p)  
+                self._Prey.remove(p)
 
 
         self._step+=1
