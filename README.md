@@ -8,11 +8,14 @@ Examples for specific simulations are implemented in the modules in the simulati
 
 # Example simulations
 
-## Duck family
-One example is a duck family consisting of a mother and a number of following children. In each step, the mother moves randomly in one of the three forward directions NE, E or SE. The subsequent child performs a radial scan of radius two and moves, if neccessary, in order to close up to the mother (random choice between ambiguous moving directions). The same is perfomed by each subsequent child with respect to the duck in front.
+## Predator
+One example is a simple predator, who in each step scans its surrounding for the nearest prey and makes one step in the appropriate direction (random choice between ambiguous possibilities). The prey agents move randomly in a smooth way, i.e. with a deviation from the previous direction of maximally one (if possible), and never onto the predator.
+![til](documentation/predator_demo.gif)
 
 ## Ants
 Another example is a model for the pathfinding mechanism of ants, which leave a track of scent of a certain strength evaporating at a certain rate. An ant moves to an adjacent cell of maximum strength in eastern (NE,E,SE) direction with a certain high probability, and else to a randomly chosen cell in eastern direction. If an ant encounters a target, it starts to move in the western direction, this time being determined to follow the strongest track and leaving a stronger scent than before. If it ends at the original starting point, it is re-included in the general ant pool. In many cases, the formation of relatively short tracks of very high strength to the targets can be observed.
+![til](documentation/ants_demo.gif)
 
-## Predator
-Another example is a simple predator, who in each step scans its surrounding for the nearest prey and makes one step in the appropriate direction (random choice between ambiguous possibilities). The prey agents move randomly in a smooth way, i.e. with a deviation from the previous direction of maximally one (if possible), and never onto the predator.
+## Duck family
+Another example is a duck family consisting of a parent and a number of following children. In each step, the mother moves randomly in one of the three forward directions NE, E or SE. The subsequent child performs a radial scan of radius two and moves, if neccessary, in order to close up to the mother (random choice between ambiguous moving directions). The same is perfomed by each subsequent child with respect to the duck in front.
+![til](documentation/duck_demo.gif)
