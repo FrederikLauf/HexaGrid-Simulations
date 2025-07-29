@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Jan 23 14:23:32 2020
-
-@author: Frederik
-"""
 
 import hexagrid.app
 import simulations.predator_simulation

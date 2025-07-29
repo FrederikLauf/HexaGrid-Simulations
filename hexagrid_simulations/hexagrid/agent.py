@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Dec 25 17:22:58 2019
 
-@author: Frederik
-"""
-from .hexagrid import HexaGrid
-from .hexagrid import DIRECTIONS as DIR
+from hexagrid.hexagrid import HexaGrid
+from hexagrid.hexagrid import DIRECTIONS as DIR
 
 
 # ------------------Agent moving in a grid-------------------------------------

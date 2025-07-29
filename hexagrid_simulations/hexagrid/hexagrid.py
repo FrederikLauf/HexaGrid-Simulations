@@ -1,11 +1,8 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Dec 25 17:22:58 2019
 
-@author: Frederik
-"""
 
 DIRECTIONS = {0: 'W', 1: 'NW', 2: 'NE', 3: 'E', 4: 'SE', 5: 'SW'}
+DIRECTIONS_INVERSE = {'W': 0, 'NW': 1, 'NE': 2, 'E': 3, 'SE': 4, 'SW': 5}
 
 
 # -----------------------hexagonal grid----------------------------------------

@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Jan 16 17:40:03 2020
-
-@author: Frederik
-"""
 
 import hexagrid.app
 import simulations.duck_simulation

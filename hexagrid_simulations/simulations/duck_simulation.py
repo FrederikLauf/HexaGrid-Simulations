@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Jan 15 22:31:29 2020
-
-@author: Frederik
-"""
 
 from hexagrid.hexagrid import HexaGrid
 from hexagrid.hexagrid import DIRECTIONS as DIR

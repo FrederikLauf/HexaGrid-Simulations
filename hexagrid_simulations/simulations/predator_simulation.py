@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Jan 23 12:49:01 2020
-
-@author: Frederik
-"""
 
 from hexagrid.hexagrid import HexaGrid
 from hexagrid.hexagrid import DIRECTIONS as DIR
@@ -61,10 +56,12 @@ class PredatorAgent(Agent):
 class PreyAgent(Agent):
 
     def __init__(self, grid, position=[1, 1]):
+
         super().__init__(grid, position)
         self._decision = random.randint(0, 5)
 
     def _make_prey_decision(self):
+
         d = random.randint(self._decision - 1, self._decision + 1)
         new_decision = DIR[d % 6]
         self._decision = d % 6
@@ -106,7 +103,6 @@ class PredatorSimulation:
     def _simulation_step(self):
 
         for prey in self._Prey:
-
             decision = prey._make_prey_decision()
             destination = prey._validate_course(decision, 1)
             if destination is not False and destination.get_param() != 2:
@@ -115,14 +111,11 @@ class PredatorSimulation:
                 prey._leave_mark(1)
 
         decision = self._Predator._make_predator_decision()
-
         self._Predator._leave_mark(0)
         self._Predator._move(decision)
         self._Predator._leave_mark(2)
 
-        _Prey_copy = [self._Prey[i] for i in range(len(self._Prey))]
-        for p in _Prey_copy:
-
+        for p in self._Prey[:]:
             if p._position == self._Predator._position:
                 self._Prey.remove(p)
 
