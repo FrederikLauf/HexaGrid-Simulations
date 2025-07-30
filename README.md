@@ -13,7 +13,7 @@ One example is a simple predator, who in each step scans its surrounding for the
 ![til](documentation/predator_demo.gif)
 
 ## Predator fish
-Another example is a predator confronting a school of fish. In each step, each prey agent scans its surrounding within a small radius. If the predator is detected, it moves to the opposite direction. If no predator but instead another prey fish is detected, it moves towards this prey or one of the neighbouring directions. If nothing is detected, it moves like the prey from the Predator example above. The predator fish behaves identically to the simple predator from the Predator example above.
+Another example is a predator confronting a school of fish. In each step, each prey agent scans its surrounding within a small radius. If the predator is detected, it moves to the opposite direction, if possible. If no predator but instead another prey fish is detected, it moves towards this prey or one of the neighbouring directions, if possible. If nothing is detected, it moves like the prey from the Predator example above. The predator fish behaves identically to the simple predator from the Predator example above.
 ![til](documentation/predator_fish_demo.gif)
 
 ## Ants
