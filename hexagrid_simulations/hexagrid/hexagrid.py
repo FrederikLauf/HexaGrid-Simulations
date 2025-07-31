@@ -55,42 +55,30 @@ class HexaGrid:
         :returns: The cell in the given direction of the given cell.
         :rtype: _Cell
         """
-        i, j = cell.get_coord()
-        # column shift
-        if i % 2 == 0:  # i is even
-            if 'W' in direction:
-                if j != 0:
+        i, j = cell._coord
+        match direction:
+            case 'W':
+                j -= 1
+            case 'NW':
+                if i % 2 == 0:
                     j -= 1
-                else:
-                    return False
-            if 'E' == direction:
-                if j != self._width - 1:
-                    j += 1
-                else:
-                    return False
-        else:  # i is odd
-            if 'E' in direction:
-                if j != self._width - 1:
-                    j += 1
-                else:
-                    return False
-            if 'W' == direction:
-                if j != 0:
-                    j -= 1
-                else:
-                    return False
-        # row shift
-        if 'N' in direction:
-            if i != 0:
                 i -= 1
-            else:
-                return False
-        if 'S' in direction:
-            if i != self._height - 1:
+            case 'SW':
+                if i % 2 == 0:
+                    j -= 1
                 i += 1
-            else:
-                return False
-
+            case 'E':
+                j += 1
+            case 'NE':
+                if i % 2 != 0:
+                    j += 1
+                i -= 1
+            case 'SE':
+                if i % 2 != 0:
+                    j += 1
+                i +=1
+        if i < 0 or i > self._height - 1 or j < 0 or j > self._width - 1:
+            return False
         return self._tab[i][j]
 
     def _global_evaporate(self, step=1):

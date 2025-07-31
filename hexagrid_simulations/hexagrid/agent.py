@@ -76,7 +76,7 @@ class Agent:
             for l in range(R):
                 if current_cell is False:
                     return False
-                scan[d][l] = current_cell.get_param()
+                scan[d][l] = current_cell._param
                 direction = DIR[(d + 2) % 6]
                 current_cell = self._grid.make_direction(current_cell, direction)
         return scan
@@ -97,7 +97,7 @@ class Agent:
                 i = current_cell._coord[0] + self._position[0] - h
                 j = current_cell._coord[1] + self._position[1] - R
                 if i in range(self._grid._height) and j in range(self._grid._width):
-                    scan[d][l] = self._grid._tab[i][j].get_param()
+                    scan[d][l] = self._grid._tab[i][j]._param
                 current_cell = aux_grid.make_direction(current_cell, direction)
         return scan
 
@@ -118,15 +118,15 @@ class Agent:
             scan.append(circular_scan)
         return scan
 
-    def _move(self, decision):
+    def _move(self, direction):
         """
-        Move to cell in the decided direction, if there is a cell.
+        Move to cell in the given direction, if there is a cell.
 
-        :type decision: str
+        :type direction: str
         """
-        if decision is not None:
+        if direction is not None:
             current_cell = self._grid._tab[self._position[0]][self._position[1]]
-            new_cell = self._grid.make_direction(current_cell, decision)
+            new_cell = self._grid.make_direction(current_cell, direction)
             if new_cell:
                 self._position = list(new_cell.get_coord())
 

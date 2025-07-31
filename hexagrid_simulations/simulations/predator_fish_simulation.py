@@ -60,7 +60,7 @@ class PreyAgent(Agent):
 
         super().__init__(grid, position)
         self._decision = random.randint(0, 5)
-        self._awareness_radius = 4
+        self._awareness_radius = 5
         
     def _localise_prey(self):
 
@@ -168,15 +168,13 @@ class PredatorFishSimulation:
 
         self._max_steps = 2000
         self._step = 0
-        self._time_step = 30
+        self._time_step = 25
 
         self._World = HexaGrid(40, 60)
 
-        self._prey_number = 100
-
         self._Prey = []
-        for i in range(15):
-            for j in range(15):
+        for i in range(12):
+            for j in range(12):
                 new_prey = PreyAgent(self._World, [20 + i, 20 + j])
                 self._Prey.append(new_prey)
                 new_prey._leave_mark(1)
@@ -184,24 +182,36 @@ class PredatorFishSimulation:
 
         self._Predator = PredatorAgent(self._World, [1, 1])
         self._Predator._leave_mark(2)
+        
+        self._Predator2 = PredatorAgent(self._World, [1, 5])
+        self._Predator2._leave_mark(2)
 
     def _simulation_step(self):
 
         for prey in self._Prey:
             decision = prey._make_prey_decision()
             destination = prey._validate_course(decision, 1)
-            if destination is not False and destination.get_param() == 0:
+            if destination is not False and destination._param == 0:
                 prey._leave_mark(0)
                 prey._move(decision)
                 prey._leave_mark(1)
 
         decision = self._Predator._make_predator_decision()
-        self._Predator._leave_mark(0)
-        self._Predator._move(decision)
-        self._Predator._leave_mark(2)
+        destination = self._Predator._validate_course(decision, 1)
+        if destination is not False and destination._param != 2:
+            self._Predator._leave_mark(0)
+            self._Predator._move(decision)
+            self._Predator._leave_mark(2)
+        
+        decision = self._Predator2._make_predator_decision()
+        destination = self._Predator2._validate_course(decision, 1)
+        if destination is not False and destination._param != 2:
+            self._Predator2._leave_mark(0)
+            self._Predator2._move(decision)
+            self._Predator2._leave_mark(2)
 
         for p in self._Prey[:]:
-            if p._position == self._Predator._position:
+            if p._position == self._Predator._position or p._position == self._Predator2._position:
                 self._Prey.remove(p)
 
         self._step += 1
